@@ -1,0 +1,354 @@
+https://www.youtube.com/watch?v=b5oQZdzA37I
+
+Git Commands
+
+git --version
+
+
+Git Tools.
+----------
+Git bash
+Git UI
+
+$git gui
+
+
+-----------------------
+======Directory Command==================
+
+mkdir <folder name> 
+cd <path of the directory>
+
+=====--------------------------------------
+Dell@Admin MINGW64 /g/ManishaGit
+$ mkdir Myprojct
+
+Dell@Admin MINGW64 /g/ManishaGit
+$ cd Myprojct
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct
+$
+=========================================
+To convert directory as repository
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct
+$ git init
+=============================================
+Add and Commit
+----------------
+create  a file in Myprojct
+example File1.txt
+add some text in  it
+Now save the changes in staging error
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git add File1.txt
+
+will add the File1.txt to staging Area.
+
+To add all files in the staging error use
+-----------------------------------------------------
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git add .
+.-->Period 
+
+$git add File*
+
+To commit the files in Local Repository
+---------------------------------------
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git commit -m "First Commit"
+[master (root-commit) 1aef2b1] First Commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 File1.txt
+
+To check the status 
+--------------------
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+Now do some changes in files 
+add the files to staging area and check the status
+
+example :do changes in File2
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git add .
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   File2.txt
+
+===========================Config Command =====================================================
+configure the user who will use the local repository by setting name and email 
+Git Config command can run globally or in  the current directory
+
+Create a new user:
+$ git config --global user.name "Manisha Mane"
+git config --global user.email  "pimplemp@rediffmail.com"
+
+Or locally
+$ git config  user.name "Manisha Mane"
+git config  user.email  "pimplemp@rediffmail.com"
+
+
+$git config --list
+This command will list all your settings. See the below command line output.
+
+Output
+Dell@Admin MINGW64 /
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+credential.helper=manager
+user.name=Manisha Mane
+gui.recentrepo=G:/ManishaGit/localrepository
+
+
+==================Branching =======================
+
+Branch --another line of development.
+default is the Master Branch . we can create a duplicate copy of current branch do the new changes and then update the original branch
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git status
+On branch master
+
+New Develop Branch is created 
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git branch develop
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git branch
+  develop
+* master
+to switch to the develop branch for furtherr development 
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git checkout develop
+Switched to branch 'develop'
+
+Now do changes in the File2.txt
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git status
+On branch develop
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git commit -am "Develop branch commit"  // -am will do add and commit in 1 command
+[develop bc636f7] Develop branch commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git status
+On branch develop
+nothing to commit, working tree clean
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git log
+commit bc636f7027217fdca3c05e63f9cace76c4f88c60 (HEAD -> develop)
+Author: Manisha Mane <pimplemp@rediffmail.com>
+Date:   Wed May 6 22:49:27 2020 +0530
+
+    Develop branch commit
+
+commit c5bfeea40242312eda3fb98dbcb766e75363ee2c (master)
+Author: Manisha Mane <pimplemp@rediffmail.com>
+Date:   Wed May 6 22:44:24 2020 +0530
+
+    master branch
+
+commit e11fce739e937c675e9cb0d57ed31a551761436e
+Author: Manisha Mane <pimplemp@rediffmail.com>
+Date:   Wed May 6 22:12:53 2020 +0530
+
+    second commit
+
+commit 7d72249018c3c5cdbae51c20d7629a49eb2c0d61
+Author: Manisha Mane <pimplemp@rediffmail.com>
+Date:   Tue May 5 23:14:39 2020 +0530
+
+
+$git checkout master // will go to the snapshot which we have created earlier
+
+create a new branch feature
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git checkout feature/new-feature
+error: pathspec 'feature/new-feature' did not match any file(s) known to git
+ As the branch is nit created 
+
+we can create and checkout the branch in single command
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git checkout -b feature/new-feature		//-b is branch 
+Switched to a new branch 'feature/new-feature'
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$
+
+Flow 
+Master==>develop==>feature/newfeature
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git status
+On branch feature/new-feature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File2.txt
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git commit -am "done with new feature"
+[feature/new-feature 61bb5ee] done with new feature
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+https://www.youtube.com/watch?v=JTE2Fn_sCZs
+
+Merging the branches 
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git branch
+  develop
+  feature/new-feature
+* master
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
+$ git checkout develop
+Switched to branch 'develop'
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git branch
+* develop
+  feature/new-feature
+  master
+
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git checkout feature/new-feature
+Switched to branch 'feature/new-feature'
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git checkout develop
+Switched to branch 'develop'
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
+$ git merge  feature/new-feature
+Updating bc636f7..61bb5ee
+Fast-forward
+ File2.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+https://www.youtube.com/watch?v=0iuqXh0oojo
+
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+--Delete a branch 
+git branch -d featuer/new-featuer
+
+or 
+
+git branch -D featuer/new-featuer i not safe as it doesnt show the unmarge branch
+
+master-->develop-->feature/new-feature/manisha
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (manisha)
+$ git checkout feature/new-feature
+Switched to branch 'feature/new-feature'
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git branch -d manisha
+error: The branch 'manisha' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D manisha'.
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git merge manisha
+Updating 61bb5ee..04a26d5
+Fast-forward
+ File2.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git branch -d manisha
+Deleted branch manisha (was 04a26d5).
+
+
+
+
+Git Environment Setup
+The environment of any tool consists of elements that support execution with software, hardware, and network configured. It includes operating system settings, hardware configuration, software configuration, test terminals, and other support to perform the operations. It is an essential aspect of any software.
+
+It will help you to understand how to set up Git for first use on various platforms so you can read and write code in no time.
+
+
+
+
+
+You can customize your Git output to view a personalized color theme. The git config can be used to set these color themes.
+
+Color.ui
+
+$ Git config -global color.ui true  
+The default value of color.ui is set as auto, which will apply colors to the immediate terminal output stream. You can set the color value as true, false, auto, and always.
+
+Git configuration levels
+-------------------------
+The git config command can accept arguments to specify the configuration level. The following configuration levels are available in the Git config.
+local--default configuration
+global
+system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git clone command
+====================
+This command is used to make a copy of a repository from an existing URL. If I want a local copy of my repository from GitHub,
+
+
+Dell@Admin MINGW64 /g/ManishaGit/Demo (master)
+$ ls -a
+./  ../  .git/  File1.txt
+
+
