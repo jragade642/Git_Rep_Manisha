@@ -1,11 +1,118 @@
 https://www.youtube.com/watch?v=b5oQZdzA37I
 
+version controlling and source code management.
 
-@@@@@@@@@@@@@@@@@Pulling the  repository to loacl repository@@@@@@@@@@@@@@@@@@@
+plan & code --git & git hub
+
+Version Control System
+===============================
+Version Control System (VCS) is a software that helps software developers to work together and maintain a complete history of their work.
+
+Listed below are the functions of a VCS -
+
+Allows developers to work simultaneously.
+Does not allow overwriting each other’s changes.
+Maintains a history of every version.
+
+Following are the types of VCS -
+Centralized version control system (CVCS).
+Distributed/Decentralized version control system (DVCS).  git hub
+
+========================================================
+Distributed Version Control System
+Centralized version control system (CVCS) uses a central server to store all files and enables team 
+collaboration. 
+But the major drawback of CVCS is its single point of failure, i.e., failure of the central server. 
+Unfortunately, if the central server goes down for an hour, then during that hour, no one can collaborate at 
+all. And even in a worst case, if the disk of the central server gets corrupted and proper backup has not been taken, then you will lose the entire history of the project. Here, distributed version control system (DVCS) comes into picture.
+
+DVCS clients not only check out the latest snapshot of the directory but they also fully mirror the repository.
+If the server goes down, then the repository from any client can be copied back to the server to restore it.
+Every checkout is a full backup of the repository. Git does not rely on the central server and that is 
+why you can perform many operations when you are offline. 
+You can commit changes, create branches, view logs, and perform other operations when you are offline. 
+You require network connection only to publish your changes and take the latest changes.
+
+==================
+Features:
+Free and open source
+Fast and small
+Implicit backup
+Security
+====================================
+DVCS Terminologies
+Local Repository
+Every VCS tool provides a private workplace as a working copy. Developers make changes in their private 
+workplace and after commit, these changes become a part of the repository.
+
+Working Directory and Staging Area or Index
+The working directory is the place where files are checked out. In other CVCS, developers generally make
+ modifications and commit their changes directly to the repository. 
+But Git uses a different strategy. Git doesn’t track each and every modified file. Whenever you do commit an operation, Git looks for the files present in the staging area. Only those files present in the staging area are considered for commit and not all the modified files.
+
+Let us see the basic workflow of Git.
+
+Step 1 - You modify a file from the working directory.
+
+Step 2 - You add these files to the staging area.
+
+Step 3 - You perform commit operation that moves the files from the staging area. After push operation,
+ it stores the changes permanently to the Git repository.
+
+=========================================================================
+
+How to Install Git on Windows
+1.To use Git, you have to install it on your computer. Even if you have already installed Git, 
+it's probably a good idea to upgrade it to the latest version. 
+You can either install it as a package or via another installer or download it from its official site.
+Click on the package given on the page as download 2.23.0 for windows.
+
+2.Click on the downloaded installer file and select yes to continue
+
+Now the question arises that how to download the Git installer package. Below is the stepwise installation process that helps you to download and install the Git.
+
+How to download Git?
+Step1
 
 
+To download the Git installer, visit the Git's official site and go to download page. The link for the download page is https://git-scm.com/downloads
 
+.git folder
+
+object---
+git show -s --pretty=rqw <commit id> 5digit
+git ls-tree <tree id> 5digit 
+git show <>
+
+
+Dell@Admin MINGW64 /g/2021/May2021/GIT 6May/Demos (master)
+$ git show -s --pretty=raw 7de93
+commit 7de93903cab91cda35111ab79c21abc360e3c0d8
+tree 1c26150cad361a490a0d70e39b31eb470a90fc66
+author Manisha Mane <pimplemp@rediffmail.com> 1620286287 +0530
+committer Manisha Mane <pimplemp@rediffmail.com> 1620286287 +0530
+
+    First Commit
+
+Dell@Admin MINGW64 /g/2021/May2021/GIT 6May/Demos (master)
+$ git ls-tree 1c265
+fatal: Not a valid object name 1c265
+
+Dell@Admin MINGW64 /g/2021/May2021/GIT 6May/Demos (master)
+$ git ls-tree 1c261
+100644 blob 13ff9bc2cbf4ac9a423427d54079df75cef6fc5d    MyDemo1.txt
+
+Dell@Admin MINGW64 /g/2021/May2021/GIT 6May/Demos (master)
+$ git show 13ff9
+apple
+mango
+banana
+
+====================================
 Git Commands
+start .--->open the file explorer
+code .--->open vs code
+notepad test.txt
 
 git --version
 
@@ -37,7 +144,50 @@ $
 To convert directory as repository
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct
 $ git init
-=============================================
+=============================================Stages and commit command============
+git staging
+-git init
+-git add
+-Git Clone
+---------
+In Git, cloning is the act of making a copy of any target repository. The target repository can be remote or local. You can clone your repository from the remote repository to create a local copy on your system.
+$ git clone https://github.com/Manisha-atos/DevOps5Jan.git --current dirctory
+$ git clone https://github.com/Manisha-atos/DevOps5Jan.git "sample"--  to sample folder
+-Git Clone Branch
+---------------
+Git allows making a copy of only a particular branch from a repository.
+$ git clone -b feature/new-feature  https://github.com/Manisha-atos/DevOps5Jan.git "branch"
+-Git Stash
+--------
+Sometimes you want to switch the branches, but you are working on an incomplete part of your current project. You don't want to make a commit of half-done work. Git stashing allows you to do so. The git stash command enables you to switch branches without committing the current branch.
+$git status
+$git stash
+$git stash list
+git index
+$git status
+As we mentioned earlier index is a file, not a directory, 
+So Git is not storing objects into it. 
+Instead, it stores information about each file in our repository. This information could be:
+
+mtime: It is the time of the last update.
+file: It is the name of the file.
+Wdir: The version of the file in the working directory.
+Stage: The version of the file in the index.
+Repo: The version of the file in the repository.
+
+Git Head
+The HEAD points out the last commit in the current checkout branch. 
+It is like a pointer to any reference. The HEAD can be understood as the "current branch." When you switch branches with 'checkout,' the HEAD is transferred to the new branch.
+$git show head
+$git log
+$git show 76f9a8cd9aa75948b22a9847d8c863c06d292f03
+
+
+
+
+git commit
+
+==================================================================================
 Add and Commit
 ----------------
 create  a file in Myprojct
@@ -48,9 +198,16 @@ Now save the changes in staging error
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
 $ git add File1.txt
 
+
 will add the File1.txt to staging Area.
 
 To add all files in the staging error use
+git em --cached File1.txt
+
+git commit -m "First Commit"
+
+(use "git rm --cached <file>..." to unstage)
+
 -----------------------------------------------------
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
 $ git add .
@@ -65,6 +222,37 @@ $ git commit -m "First Commit"
 [master (root-commit) 1aef2b1] First Commit
  1 file changed, 1 insertion(+)
  create mode 100644 File1.txt
+
+Git commit
+The above command will prompt a default editor and ask for a commit message.
+Press the Esc key and after that 'I' for insert mode. Type a commit message whatever you want.
+Press Esc after that ':wq' to save and exit from the editor. Hence, we have successfully made a commit.
+
+Git commit -a 
+The commit command also provides -a option to specify some commits. It is used to commit the snapshots
+of all changes. This option only consider already added files in Git.
+
+Git commit -m "First commit"
+
+The -m option of commit command lets you to write the commit message on the command line.
+This command will not prompt the text editor.
+
+
+git commit -am "Third Commit"
+
+
+===========================Inspecting &Tracking commands=========================
+git status
+git log
+git diff
+
+git History
+How to view Git Commit History of specific intervals?
+It is a self-explanatory option in git log. When we type the command:
+git log –since=<date>
+
+Diff command is used in git to track the difference between the changes made on a file. show the diffe between old and new content.
+============================================================
 
 To check the status 
 --------------------
@@ -121,12 +309,48 @@ core.symlinks=false
 credential.helper=manager
 user.name=Manisha Mane
 gui.recentrepo=G:/ManishaGit/localrepository
+===================Cloning========================
+
+In Git, cloning is the act of making a copy of any target repository. 
+The target repository can be remote or local. You can clone your repository from the remote repository 
+to create a local copy on your system. Also, you can sync between the two locations.
+$ git clone https://github.com/Manisha-atos/NewRepo.git 
+
+========================Undoing changes===================
+Git Checkout
+In Git, the term checkout is used for the act of switching between different versions of a target entity. The git checkout command is used to switch between branches in a repository
+
+Git Revert
+In Git, the term revert is used to revert some changes.Git revert allows some additional operations like editing, no editing, cleanup, and more. Let's understand these options briefly:
+
+$ git revert 76f9a8cd9aa75948b22a9847d8c863c06d292f03
+< commit>: The commit option is used to revert a commit. To revert a commit, we need the commit reference id. The git log command can access it.
+
+$ git revert <commit-ish>  
+<--edit>: It is used to edit the commit message before reverting the commit. It is a default option in git revert command.
+
+$ git revert -e <commit-ish>  
+-m parent-number /--mainline parent-number: it is used to revert the merging. Generally, we cannot revert a merge because we do not know which side of the merge should be considered as the mainline. We can specify the parent number and allows revert to reverse the change relative to the specified parent.
+
+-n/--no edit: This option will not open a text editor. It will directly revert the last commit.
+
+$ git revert -n <commit-ish>  
+--cleanup=<mode>: The cleanup option determines how to strip spaces and comments from the message.
+
+$git reset
+
+Reverting undoes a commit by creating a new commit. ... Contrast this with git reset , which does alter the existing commit history. For this reason, git revert should be used to undo changes on a public branch, and git reset should be reserved for undoing changes on a private branch.
 
 
-==================Branching =======================
+=======================Branching =======================
+
+git branch:
+
 
 Branch --another line of development.
-default is the Master Branch . we can create a duplicate copy of current branch do the new changes and then update the original branch
+default is the Master Branch .
+we can create a duplicate copy of current branch do the new changes
+and then update the original branch
 
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
 $ git status
@@ -227,6 +451,13 @@ $ git commit -am "done with new feature"
 
 https://www.youtube.com/watch?v=JTE2Fn_sCZs
 
+rename a branch
+git branch -m new_branch wchar_support
+
+git diff command
+
+=================================Git Branch=================================================
+
 Merging the branches 
 
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (master)
@@ -253,6 +484,9 @@ Switched to branch 'feature/new-feature'
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
 $ git checkout develop
 Switched to branch 'develop'
+
+
+$ git branch -d<branch name> 
 
 Dell@Admin MINGW64 /g/ManishaGit/Myprojct (develop)
 $ git merge  feature/new-feature
@@ -296,16 +530,135 @@ Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
 $ git branch -d manisha
 Deleted branch manisha (was 04a26d5).
 
+git branch b1
+-- addedccode
+  git branch br3
+--added code
+
+br3--merge br1
+
+git branch
+git branch br1
+git checkout br1
 
 
+git branch -d br3
+git branch -D br3-- forcefully delete the branch
+
+git rebase
+
+Git conflict 
+https://opensource.com/article/20/4/git-merge-conflict
+git push origin -delete <branch name>  -- to remove remote branch
+
+---connecting with remote repository git ADD and PUSH-----
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ git remote add origin https://github.com/Manisha-atos/Git_Rep.git
+
+https://github.com/Manisha-atos/Devops27Aug.git
+--cloning remote repo into local repository
+
+Dell@Admin MINGW64 /g/ManishaGit/Myprojct (feature/new-feature)
+$ cd /g
+
+Dell@Admin MINGW64 /g
+$ mkdir git-repo
+
+Dell@Admin MINGW64 /g
+$ cd /git-repo
+bash: cd: /git-repo: No such file or directory
+
+Dell@Admin MINGW64 /g
+$ cd g/git-repo
+bash: cd: g/git-repo: No such file or directory
+
+Dell@Admin MINGW64 /g
+$ cd /g/git-repo
+
+Dell@Admin MINGW64 /g/git-repo
+$
+
+Dell@Admin MINGW64 /g/git-repo
+$ git clone https://github.com/Manisha-atos/Git_Rep.git
+Cloning into 'Git_Rep'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+
+----Pull the new changes from remote to local-------------------
+git remote -v
+git remote add origin https://github.com/Manisha-atos/DevOps5Jan.git
+git remote remove origin
+
+
+
+Instead of removing and re-adding, you can do this:
+
+git remote set-url origin https://github.com/Manisha-atos/Campus-hIres-Java.git
+
+
+
+Push to remote repo
+
+1. Add remote orgin
+2. local -->Push-->Remote
+	git push origin master --- master is the name of branch to push, local and remote branch name should be same 
+
+Dell@Admin MINGW64 /g/2021/Mar/Git5Mar/GitDemo (master)
+$ git push origin quality
+Everything up-to-date
+
+In this code we can not push local master branch to remote quality branch.
+
+
+
+
+	git push -f origin master
+
+	git push --all master 
+
+3.Added new changes to Github repo
+	remote-->local
+	git pull origin master
+git checkout .
+
+git pull origin master --allow-unrelated-histories
+
+http://allendowney.github.io/amgit/conflict.html
+https://www.educative.io/edpresso/the-fatal-refusing-to-merge-unrelated-histories-git-error
+
+
+Dell@Admin MINGW64 /g/git-repo/Git_Rep (master)
+$ git pull origin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 714 bytes | 2.00 KiB/s, done.
+From https://github.com/Manisha-atos/Git_Rep
+ * branch            master     -> FETCH_HEAD
+   011f800..4c95c63  master     -> origin/master
+Updating 011f800..4c95c63
+Fast-forward
+ GitCommands.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+
+====================================
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+====================
+Check your Remote
+To check the configuration of the remote server, run the git remote command. The git remote command allows accessing the connection between remote and local. If you want to see the original existence of your cloned repository, use the git remote command. It can be used as:
 
 Git Environment Setup
 The environment of any tool consists of elements that support execution with software, hardware, and network configured. It includes operating system settings, hardware configuration, software configuration, test terminals, and other support to perform the operations. It is an essential aspect of any software.
 
 It will help you to understand how to set up Git for first use on various platforms so you can read and write code in no time.
-
-
-
 
 
 You can customize your Git output to view a personalized color theme. The git config can be used to set these color themes.
@@ -322,13 +675,65 @@ local--default configuration
 global
 system
 
+============================== git tags==========================
+How To add a Tag In Git?
+1.Open Git Bash in the working directory.
+
+2. Check if you have a clean working directory.
+
+3. Execute the following command to view the commits:
+
+git log –oneline
+
+Dell@Admin MINGW64 /g/2021/January/GitRSS12Jan/day1 (master)
+$ git log --oneline
+76f9a8c (HEAD -> master) new commit
+19b6bc1 (tag: ongoing, origin/master) commit
+ba9b4c7 (origin/feature/new-feature) tues commit4
+
+
+4.We can now create a tag onto any of these commits. 
+Let’s tag the last commit on the dev branch by executing the following command:
+
+git tag ongoing dev
+5. to tag a specific commit
+
+Dell@Admin MINGW64 /g/2021/January/GitRSS12Jan/day1 (master)
+$ git log --oneline
+76f9a8c (HEAD -> master) new commit
+19b6bc1 (tag: ongoing, origin/master) commit
+ba9b4c7 (origin/feature/new-feature) tues commit4
+11a8dec (tag: newtag) Tues Commit3
+983f6c6 Tues Commit2
+8d3c2ab tues commit 1
+f1b996a Tues Commit
+4485b2b second commit
+1b0a554 First Commit for Fruits
+version3
+version2
+version1
+
+$ git tag -a newtag -m "new tag commit br1" 2f4d203 
+
+$git tag  --to view the tag
+
+
+push tag to the repository
+git push --tags
+git tag -d newtag --- to delete a tag
+
+
+check the github repository for tags
+9022442819
+
+
+------------------------rebase==================
+https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c
+https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase
 
 
 
-
-
-
-
+7efb1eb 
 
 
 
